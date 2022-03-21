@@ -13,11 +13,19 @@ fn main() {
                 .min_values(1),
         )
         .arg(
-            Arg::with_name("omit newline")
+            Arg::with_name("omit_newline")
                 .short("n")
-                .help("Input text")
+                .help("Omit newline")
                 .takes_value(false),
         )
         .get_matches();
-    println!("{:#?}", matches);
+
+    let text = matches.values_of_lossy("text").unwrap();
+    let omit_newline = matches.is_present("omit_newline");
+
+    print!(
+        "{} {}",
+        text.join(" "),
+        if omit_newline { "" } else { "\n" }
+    );
 }
