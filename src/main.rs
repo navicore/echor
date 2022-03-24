@@ -4,7 +4,7 @@ fn main() {
     let matches = App::new("echor")
         .version("0.1.0")
         .author("Ed Sweeney <ed@onextent.com>")
-        .about("Rust echor")
+        .about("Rust echo")
         .arg(
             Arg::with_name("text")
                 .value_name("TEXT")
